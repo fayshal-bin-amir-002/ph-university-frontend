@@ -5,6 +5,8 @@ import { adminPaths } from "../../routes/admin.routes";
 import { facultyPaths } from "../../routes/faculty.routes";
 import { studentPaths } from "../../routes/student.routes";
 import { TSidebarItem } from "../../types";
+import { useAppSelector } from "../../redux/hooks";
+import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 
 const UserRole = {
   ADMIN: "admin",
@@ -13,7 +15,7 @@ const UserRole = {
 };
 
 const SideBar = () => {
-  const role = "admin";
+  const role = useAppSelector(selectCurrentUser)?.role;
   let sidebarItems: TSidebarItem[];
 
   switch (role) {
