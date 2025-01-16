@@ -18,7 +18,7 @@ const Login = () => {
     password: "admin123",
   };
 
-  const [login, { error }] = useLoginMutation();
+  const [login] = useLoginMutation();
 
   const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Logging in...");
@@ -38,8 +38,8 @@ const Login = () => {
         id: toastId,
         duration: 2000,
       });
-    } catch (error) {
-      toast.error("Something went wrong!", { id: toastId });
+    } catch (error: any) {
+      toast.error(error.data.message || error?.message, { id: toastId });
     }
   };
 
