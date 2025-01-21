@@ -63,6 +63,6 @@ const baseQueryWithRefeshToken: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithRefeshToken,
-  tagTypes: ["AcademicSemester", "AcademicFaculty"],
+  tagTypes: ["AcademicSemester", "AcademicFaculty", "semester", "courses"],
   endpoints: () => ({}),
 });
